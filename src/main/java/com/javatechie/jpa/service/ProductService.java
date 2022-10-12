@@ -31,23 +31,22 @@ public class ProductService {
 
 
     public List<Product> findAllProducts() {
+        System.out.println("aaaaaaaaaaaaaaaaaaaaadadadvasdabdabdasdbabdabdabdbadbafebrebnefesbsebsbesbefsbefsefsefbsbsbfsns");
         return repository.findAll();
     }
 
-
-    public List<Product> findProductsWithSorting(String field){
-        return  repository.findAll(Sort.by(Sort.Direction.ASC,field));
+    public List<Product> findProductsWithSorting(String field) {
+        return repository.findAll(Sort.by(Sort.Direction.ASC, field));
     }
-
-
-    public Page<Product> findProductsWithPagination(int offset,int pageSize){
+    
+    public Page<Product> findProductsWithPagination(int offset, int pageSize) {
         Page<Product> products = repository.findAll(PageRequest.of(offset, pageSize));
-        return  products;
+        return products;
     }
 
-    public Page<Product> findProductsWithPaginationAndSorting(int offset,int pageSize,String field){
+    public Page<Product> findProductsWithPaginationAndSorting(int offset, int pageSize, String field) {
         Page<Product> products = repository.findAll(PageRequest.of(offset, pageSize).withSort(Sort.by(field)));
-        return  products;
+        return products;
     }
 
 }
